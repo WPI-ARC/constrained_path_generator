@@ -1,0 +1,21 @@
+<launch>
+
+  <!-- Standard parameters to set node output and enable divorced TF trees -->
+  <arg name="output" default="screen" />
+  <arg name="remapped_tf" default="/tf" />
+
+  <arg name="planning_scene_service" default="get_planning_scene" />
+  <arg name="constrained_path_service" default="plan_constrained_path" />
+
+  <!-- Start the planner node -->
+  <node pkg="constrained_path_generator" type="constrained_path_generator_node" name="constrained_path_generator" output="$(arg output)" >
+    <!-- Overall parameters -->
+    <param name="planning_scene_service" type="string" value="$(arg planning_scene_service)" />
+    <param name="constrained_path_service" type="string" value="$(arg constrained_path_service)" />
+    <param name="planning_plugin" type="string" value="ompl_interface/OMPLPlanner" />
+    <param name="request_adapters" value="default_planner_request_adapters/AddTimeParameterization default_planner_request_adapters/FixStartStateBounds" />
+    <!-- Remap TF as needed for divorced TF trees -->
+    <remap from="/tf" to="$(arg remapped_tf)" />
+  </node>
+
+</launch>

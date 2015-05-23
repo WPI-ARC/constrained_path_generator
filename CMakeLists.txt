@@ -53,10 +53,10 @@ find_package(Eigen REQUIRED)
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(DIRECTORY msg FILES CheckTrajectoryValidityQuery.msg CheckTrajectoryValidityResult.msg)
+add_message_files(DIRECTORY msg FILES PlanConstrainedPathQuery.msg PlanConstrainedPathResult.msg)
 
 ## Generate services in the 'srv' folder
-add_service_files(DIRECTORY srv FILES CheckTrajectoryValidity.srv BatchCheckTrajectoryValidity.srv)
+add_service_files(DIRECTORY srv FILES PlanConstrainedPath.srv)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -91,7 +91,7 @@ catkin_package(
 # include_directories(include)
 include_directories(SYSTEM ${catkin_INCLUDE_DIRS} ${Eigen_INCLUDE_DIRS})
 
-set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Werror")
+set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -O0 -g -Wall -Wextra -Werror")
 
 ## Declare a cpp executable
 add_executable(constrained_path_generator_node src/constrained_path_generator_node.cpp)
