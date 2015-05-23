@@ -582,7 +582,7 @@ public:
                 trajectory.points.push_back(traj_point);
             }
             ROS_INFO("Generating cartesian path via planning succeded");
-            return std::pair<trajectory_msgs::JointTrajectory, moveit_msgs::MoveItErrorCodes>(trajectory_msgs::JointTrajectory(), planning_res.error_code_);
+            return std::pair<trajectory_msgs::JointTrajectory, moveit_msgs::MoveItErrorCodes>(trajectory, planning_res.error_code_);
         }
     }
 

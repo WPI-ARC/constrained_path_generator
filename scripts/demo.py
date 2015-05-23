@@ -66,7 +66,7 @@ def test():
     waypoints = [pose_1]
     # Make the request
     query = PlanConstrainedPathQuery()
-    query.path_type = PlanConstrainedPathQuery.CHECK_ENVIRONMENT_COLLISIONS | PlanConstrainedPathQuery.CARTESIAN_IK | PlanConstrainedPathQuery.PLAN | PlanConstrainedPathQuery.FOLLOW_WAYPOINTS | PlanConstrainedPathQuery.FOLLOW_ORIENTATION_CONSTRAINTS
+    query.path_type = PlanConstrainedPathQuery.CHECK_ENVIRONMENT_COLLISIONS | PlanConstrainedPathQuery.PLAN
     query.waypoints = waypoints
     query.group_name = "left_arm"
     query.target_link = "l_wrist_roll_link"
